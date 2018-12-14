@@ -61,7 +61,7 @@ class Linker():
 					_cur = _next
 				if len(guess_stack[-1][1]) is 0:
 					guess_stack.pop()
-					__recall(_cur)
+					return __recall(_cur)
 				return self.idx2xy(_cur),[guess_stack[-1][1].pop()]
 			print("none of guess_stack")
 
@@ -74,7 +74,7 @@ class Linker():
 				_current = self.idx2xy(_path[0])
 				_path = self._get_path(_current)
 			if self.isover():
-				break
+				return _current
 			if len(_path) is 0:
 				_current,_path = __recall(self.xy2idx(_current))
 				continue
@@ -128,7 +128,8 @@ if __name__ == '__main__':
 	l = Linker(6,5)
 	l.sethead((5,1))
 	l.setblock((2,0),(3,0),(2,2),(1,4),(4,3))
-	l.link()
+	end = l.link()
 	l.show()
+	print(end)
 
 # start 20,350 -> 1060 1220
