@@ -1,3 +1,4 @@
+from logger import *
 class Linker():
 	"""for a minigame linker to link all null box by one line
 	:param map size by width and height
@@ -45,6 +46,7 @@ class Linker():
 
 	"""main func
 	"""
+	@clocker
 	def link(self):
 		# (idx, [path_idx_1,path_idx_2,path_idx_3]), while tuple[1] len is 0 ,then recall
 		def __guess(idx,_path):
